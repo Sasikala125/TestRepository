@@ -1,3 +1,5 @@
+// Tested files//
+
 const bcryptService = require('../services/bcrypt.service');
 
 const tableName = 'users';
@@ -33,12 +35,12 @@ module.exports = (sequelize, { STRING, INTEGER, BOOLEAN }) => {
             type: BOOLEAN,
         },
     }, { hooks,tableName });
-    
+
     User.prototype.toJSON = function () {
         const values = Object.assign({}, this.get());
-    
+
         delete values.password;
-    
+
         return values;
       };
 
